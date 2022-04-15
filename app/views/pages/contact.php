@@ -6,32 +6,32 @@
         <article>
           <header class="section background-white">
             <div class="line text-center">        
-              <h1 class="text-dark text-s-size-30 text-m-size-40 text-l-size-headline text-thin text-line-height-1">Contact Us</h1>
-              <p class="margin-bottom-0 text-size-16 text-dark">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.<br>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+              <h1 class="text-dark text-s-size-30 text-m-size-40 text-l-size-headline text-thin text-line-height-1">Contact Me</h1>
+              <p class="margin-bottom-0 text-size-16 text-dark">Please feel free to contact me for any kind of project or colaboration.</p>
             </div>  
           </header>
           <section class="full-width background-dark">
             <div class="s-12 m-12 l-6">
               <!-- Change the background image -->  
-              <div style="background-image: url(<?=ASSETS?>minima/img/img-contact.jpg);" class="contact-image" ></div>
+              <div class="contact-image" ><img class="logo-before" src="<?=ASSETS?>minima/img/camera.png" alt=""></div>
+              <!-- <div style="background-image: url(<?=ASSETS?>minima/img/camera.png);" class="contact-image" ></div> -->
             </div>
             <div class="s-12 m-12 l-6 text-center">
               <div class="padding-2x">
                 <i class="icon-sli-location-pin text-white text-size-30 center"></i>
-                <h2 class="text-size-20 margin-bottom-0 text-white">Company Address</h2>                
-                <p>Aviation Way 99</p>
-                <p>Los Angeles</p>
-                <p>USA</p>
+                <h2 class="text-size-20 margin-bottom-0 text-white">Office Address</h2>                
+                <p>66 Mohakhali,</p>
+                <p>Dhaka</p>
+                <p>Bangladesh</p>
                 <i class="icon-sli-envelope text-white text-size-30 center margin-top-20"></i>
                 <h2 class="text-size-20 margin-bottom-0 text-white">E-mail</h2>                
-                <a class="text-primary-hover" href="mailto:contact@sampledomain.com">contact@sampledomain.com</a><br>
-                <a class="text-primary-hover" href="mailto:office@sampledomain.com">office@sampledomain.com</a>
+                <a class="text-primary-hover" href="mailto:contact@sampledomain.com">photo_pedia@gmail.com</a><br>
+                <a class="text-primary-hover" href="mailto:office@sampledomain.com">info.photo_pedia@gmail.com</a>
                 <i class="icon-sli-earphones-alt text-white text-size-30 center margin-top-20"></i>
                 <h2 class="text-size-20 margin-bottom-0 text-white">Phone Numbers</h2>                
-                <p>0800 4521 800 50</p>
-                <p>0450 5896 625 16</p>
-                <p>0798 6546 465 </p>
+                <p>+8801234567890</p>
+                <p>+8801234567890</p>
+                <p>+8801234567890</p>
               </div>
             </div>
           </section>
@@ -67,4 +67,4 @@
         </article>
       </main>
       
-     <?php $this->view("pages/footer",$data);?>
+      <?php $this->view("pages/footer",$data);?>

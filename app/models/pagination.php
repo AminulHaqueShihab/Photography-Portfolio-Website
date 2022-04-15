@@ -25,10 +25,10 @@ Class Pagination
 			$num++;
 			if($num == 1)
 			{
- 				$url .= "?";
- 				if($key != "url")
+				$url .= "?";
+				if($key != "url")
 				{
- 					$url .= $key . "=" . $value;
+					$url .= $key . "=" . $value;
 					
 				}
 				continue;
@@ -44,7 +44,7 @@ Class Pagination
 				$url .= "&" . $key . "=" . $number;
 				continue;
 			}
-  
+
 			$url .= "&" . $key . "=" . $value;
 		}
 

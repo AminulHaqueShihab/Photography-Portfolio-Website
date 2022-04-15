@@ -4,7 +4,7 @@ Class Single_post extends Controller
 {
 	function index($link = '')
 	{
- 	 	
+		
 		if($link == "")
 		{
 
@@ -12,12 +12,12 @@ Class Single_post extends Controller
 			$this->view("minima/not_found",$data);
 		}else{
 
-	 	 	$posts = $this->loadModel("posts");
-	 	 	$result = $posts->get_one($link);
+			$posts = $this->loadModel("posts");
+			$result = $posts->get_one($link);
 
-	 	 	$data['post'] = $result;
-	 	 	
-	 	 	$data['page_title'] = "Single Post";
+			$data['post'] = $result;
+			
+			$data['page_title'] = "Single Post";
 			$this->view("pages/single_post",$data);
 		}
 

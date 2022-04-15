@@ -40,7 +40,7 @@ Class Upload_img
 				$arr['description'] = $POST['description'];
 				$arr['image'] = $destination;
 				
-				$arr['url_address'] = get_random_string_max(60);
+				$arr['url_address'] = get_random_string_max(20);
 				$arr['date'] = date("Y-m-d H:i:s");
 
 				$query = "insert into images (title,description,url_address,date,image) values (:title,:description,:url_address,:date,:image)";
