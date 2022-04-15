@@ -6,9 +6,10 @@
         <article>
           <header class="section background-white">
             <div class="line text-center">        
-              <h1 class="text-dark text-s-size-30 text-m-size-40 text-l-size-headline text-thin text-line-height-1">Be More with Less</h1>
-              <p class="margin-bottom-0 text-size-16 text-dark">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.<br>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+              <h1 class="text-dark text-s-size-30 text-m-size-40 text-l-size-headline text-thin text-line-height-1">Photography is truth.</h1>
+              <p class="margin-bottom-0 text-size-16 text-dark">There will be times when you will be in the field without a camera. And, you will 
+                see the most glorious sunset or the most beautiful scene that you have ever witnessed. 
+                Don’t be bitter because you can’t record it. Sit down, drink it in, and enjoy it for what it is!</p>
             </div>  
           </header>
 
