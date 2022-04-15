@@ -10,11 +10,11 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 	$extension = end($extension);
 										
 		if (strtolower($extension) == "jpg") {
-	 
+		
 			@$image = imagecreatefromjpeg($original_image_path);
 
- 		}elseif (strtolower($extension) == "jpeg") {
-	
+		}elseif (strtolower($extension) == "jpeg") {
+
 			@$image = imagecreatefromjpeg($original_image_path);
 			
 		}elseif (strtolower($extension) == "png") {
@@ -34,11 +34,11 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 		
 	//get orientation information if file is a jpeg
 		$orientation = 0;
-		 
+			
 			if ((strtolower($extension) == "jpg") || (strtolower($extension) == "jpeg")) { 
 				//check image orientation
 				@$exif = exif_read_data($original_image_path);
-				 
+					
 				if (isset($exif['Orientation'])) {
 					$a = $exif['Orientation'];
 					
@@ -46,7 +46,7 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 					if ($a == 3) {// 180 rotate left
 						
 						$orientation = 180;
-					 
+						
 					}elseif ($a == 5) {//flip vertical + 90 rotate right
 						
 						$orientation = -90;
@@ -54,22 +54,22 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 					}elseif ($a == 6) {//90 rotate right
 						
 						$orientation = -90;
-					 
+						
 					}elseif ($a == 7) {// horizontal flip + 90 rotate right
 						
 						$orientation = -90;
-						 
+							
 					}elseif ($a == 8) {// 90 rotate left
 						
 						$orientation = 90;
-					 
+						
 					}
 				
 				}
 				
 			}
 
- 	 		 				
+					
 	//start the actual cropping
     $w = @imagesx($image); //current width
     $h = @imagesy($image); //current height
@@ -79,20 +79,20 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 		$new_w = $w;
 		$new_h = $h;
 		//return $image; } //no resizing needed
-	    
+		
 	}else{
 		
-	    //try max width first...
-	    $ratio = $width / $w;
-	    $new_w = $width;
-	    $new_h = $h * $ratio;
-	    
-	    //if that created an image smaller than what we wanted, try the other way
-	    if ($new_h < $height) {
-	        $ratio = $height / $h;
-	        $new_h = $height;
-	        $new_w = $w * $ratio;
-	    }
+		//try max width first...
+		$ratio = $width / $w;
+		$new_w = $width;
+		$new_h = $h * $ratio;
+		
+		//if that created an image smaller than what we wanted, try the other way
+		if ($new_h < $height) {
+			$ratio = $height / $h;
+			$new_h = $height;
+			$new_w = $w * $ratio;
+		}
 
     }
     
@@ -100,12 +100,12 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
     imagecopyresampled($image2,$image, 0, 0, 0, 0, $new_w, $new_h, $w, $h);
 
     //check to see if cropping needs to happen
-    if (($new_h != $height) || ($new_w != $width)) {
-        $image3 = imagecreatetruecolor ($width, $height);
-        if ($new_h > $height) { //crop vertically
-            $extra = $new_h - $height;
-            $x = 0; //source x
-            //$y = round($extra / 2); //source y
+	if (($new_h != $height) || ($new_w != $width)) {
+		$image3 = imagecreatetruecolor ($width, $height);
+		if ($new_h > $height) { //crop vertically
+			$extra = $new_h - $height;
+			$x = 0; //source x
+			//$y = round($extra / 2); //source y
 			
 			//choose where to crop
 			if ($where == "top") {
@@ -114,22 +114,22 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 				
 			}elseif($where == "mid") {
 			
-				 $y = round($extra / 2);
-				 
+					$y = round($extra / 2);
+					
 			}elseif($where == "bottom") {
 			
-				 $y = round($extra);
+					$y = round($extra);
 			}
 			
-			 
-            imagecopyresampled($image3,$image2, 0, 0, $x, $y, $width, $height, $width, $height);
-        } else {
-            $extra = $new_w - $width;
-            $x = round($extra / 2); //source x
-            $y = 0; //source y
-             
-            imagecopyresampled($image3,$image2, 0, 0, $x, $y, $width, $height, $width, $height);
-        }
+				
+			imagecopyresampled($image3,$image2, 0, 0, $x, $y, $width, $height, $width, $height);
+		} else {
+			$extra = $new_w - $width;
+			$x = round($extra / 2); //source x
+			$y = 0; //source y
+				
+			imagecopyresampled($image3,$image2, 0, 0, $x, $y, $width, $height, $width, $height);
+		}
 
 
         imagedestroy($image2);
@@ -139,7 +139,7 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 		
 			// Rotate
 			$image3 = imagerotate($image3, $orientation, 0);
-					 
+						
 		}
 	
 		//save cropped image
@@ -154,7 +154,7 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 		
 			// Rotate
 			$image2 = imagerotate($image2, $orientation, 0);
-					 
+						
 		}
 	
 		//save uncropped image
@@ -164,7 +164,7 @@ function resize_image_crop($original_image_path,$cropped_image_path,$width,$heig
 		
     }
 	
- 
+
 }
 										
 
@@ -200,11 +200,11 @@ function resize_image_max($original_image_path,$resized_image_path,$max_width,$m
 		
 		//get orientation information if file is a jpeg
 		$orientation = 0;
-		 
+			
 			if ((strtolower($extension) == "jpg") || (strtolower($extension) == "jpeg")) { 
 				//check image orientation
 				if(@$exif = exif_read_data($original_image_path)){
-				 
+					
 				if (isset($exif['Orientation'])) {
 					$a = $exif['Orientation'];
 					
@@ -212,7 +212,7 @@ function resize_image_max($original_image_path,$resized_image_path,$max_width,$m
 					if ($a == 3) {// 180 rotate left
 						
 						$orientation = 180;
-					 
+						
 					}elseif ($a == 5) {//flip vertical + 90 rotate right
 						
 						$orientation = -90;
@@ -220,21 +220,21 @@ function resize_image_max($original_image_path,$resized_image_path,$max_width,$m
 					}elseif ($a == 6) {//90 rotate right
 						
 						$orientation = -90;
-					 
+						
 					}elseif ($a == 7) {// horizontal flip + 90 rotate right
 						
 						$orientation = -90;
-						 
+							
 					}elseif ($a == 8) {// 90 rotate left
 						
 						$orientation = 90;
-					 
+						
 					}
 				
 				}
 				
 				}
-				 
+					
 				
 			}
 
@@ -269,7 +269,7 @@ function resize_image_max($original_image_path,$resized_image_path,$max_width,$m
 	
     $new_image = imagecreatetruecolor ($new_w, $new_h);
     imagecopyresampled($new_image,$image, 0, 0, 0, 0, $new_w, $new_h, $w, $h);
- 
+
  	//rotate image if necessary
 	if($orientation != 0){
 	
@@ -279,15 +279,15 @@ function resize_image_max($original_image_path,$resized_image_path,$max_width,$m
 	}
 	
  	//save resized image
- 	imagejpeg($new_image,$resized_image_path,100);
+	imagejpeg($new_image,$resized_image_path,100);
 	imagedestroy($new_image);
- 
+
 	return true;
 		
 }
 
 function get_thumbnail($file,$width = 300,$height = 300){
- 
+
 		if(file_exists($file)){
 		
 			$file_extention = explode(".",$file);
@@ -296,19 +296,19 @@ function get_thumbnail($file,$width = 300,$height = 300){
 			if(strtolower($file_extention) == "jpg" || strtolower($file_extention) == "jpeg"){
 			
 				$thumb = str_replace("." . $file_extention,"_thumb." . $file_extention,$file);
-		 
-		  
+			
+			
 				if(file_exists($thumb)){
-		  
+			
 					return $thumb;
-				 
+					
 				}else{
 				
 					make_new:
 					//create a square thumbnail for display
-				 
+					
 						$this->resize_image_crop($file,$thumb,$width,$height);
-				 
+					
 					
 					if(file_exists($thumb)){
 					
