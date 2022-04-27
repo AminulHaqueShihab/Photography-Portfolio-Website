@@ -42,5 +42,21 @@ Class Posts
 		return false;
 	}
 
+	function like_increment($link)
+	{
+
+		$query = "update images set like_count = like_count + 1 where url_address = :link";
+		$arr['link'] = $link;
+
+		$DB = new Database();
+		$data = $DB->update($query,$arr);
+		if(is_array($data))
+		{
+
+			return $data[0];
+		}
+
+		return false;
+	}
 
 }

@@ -9,7 +9,7 @@
               <h4 class="text-size-20 margin-bottom-20 text-dark text-center"><?=$data['post']->title?></h4>
                 <img src="<?=ROOT.$data['post']->image?>" />
                 <br>
-                <a href="<?=$data['prev_page']?>"><input type="button" class="s-12 submit-form button background-primary text-white" style="width: 150px;"  value="Like 👌 <?=$data['post']->like_count?>"></a>
+                <a href="<?=$data['url']?>"><input type="button" name = "like" class="s-12 submit-form button background-primary text-white" style="width: 150px;"  value="Like 👌 <?=$data['post']->like_count?>"></a>
                 <br>
                 <!-- <h3>Like Count</h3> -->
                 <br>
