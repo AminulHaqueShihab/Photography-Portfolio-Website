@@ -42,8 +42,9 @@ Class Upload_img
 				
 				$arr['url_address'] = get_random_string_max(20);
 				$arr['date'] = date("Y-m-d H:i:s");
+				$arr['view_count'] = 0;
 
-				$query = "insert into images (title,description,url_address,date,image) values (:title,:description,:url_address,:date,:image)";
+				$query = "insert into images (title,description,url_address,date,image,view_count) values (:title,:description,:url_address,:date,:image,:view_count)";
 				$data = $DB->write($query,$arr);
 				if($data)
 				{

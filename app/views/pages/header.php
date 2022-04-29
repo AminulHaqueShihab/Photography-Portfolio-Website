@@ -25,7 +25,7 @@
         <!-- Top Navigation -->
         <nav class="background-transparent background-transparent-hightlight full-width sticky">
           <div class="s-12 l-2">
-            <a href="index.html" class="logo">
+            <a href="<?=ROOT?>home" class="logo">
               <!-- Logo version before sticky nav -->
               <img class="logo-before" src="<?=ASSETS?>minima/img/Photo Pedia.png" alt="">
               <!-- Logo version after sticky nav -->
