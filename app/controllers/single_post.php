@@ -19,6 +19,11 @@ Class Single_post extends Controller
 			$data['view'] = $posts->views_increment($link);
 			$user_comments = $posts->get_comments($link);
 			$data['comments'] = $user_comments;
+
+			$user = $this->loadModel("user");
+			$id = $user->get_user_id();
+			$data['user'] = $user->get_username($id);
+			
 			if(isset($_POST['name']) && isset($_POST['comment']))
 			{
 				$user = $this->loadModel("user");

@@ -8,8 +8,11 @@
             <div class="s-12 m-12 l-4 center">
               <h4 class="text-size-20 margin-bottom-20 text-dark text-center"><?=$data['post']->title?></h4>
                 <img src="<?=ROOT.$data['post']->image?>" />
+                <?php if(is_array($data['user'])): ?>
+                  <p>by <?=$data['user'][0]->name?></p>
+                <?php endif;?>
                 <br>
-                <a href="<?=$data['url']?>"><input type="button" name = "view" class="s-12 submit-form button background-primary text-white" style="width: 150px;"  value="views 👌 <?=$data['post']->view_count?>"></a>
+                <a href="<?=$data['url']?>"><input type="button" name = "view" class="s-12 submit-form button background-blue text-white" style="width: 150px;"  value="Views 👁 <?=$data['post']->view_count?>"></a>
                 <br>
                 <br>
                 <?=$data['post']->description?>

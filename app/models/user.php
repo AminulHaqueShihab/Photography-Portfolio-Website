@@ -135,6 +135,26 @@ Class User
 		return false;
 
 	}
+
+	function get_username($id)
+	{
+		$db = new Database();
+		$list['id'] = $id;
+		$query = "select * from users where id = :id";
+		$data = $db->read($query,$list);
+		if(is_array($data))
+		{
+			//logged in
+			// $_SESSION['username'] = $data[0]->username;
+			// show($data);
+			return $data;
+		}
+		else{
+			return false;
+		}
+
+	}
+
 	function get_user_id()
 	{
 
@@ -144,7 +164,7 @@ Class User
 		{
 
 			$list['user_url'] = $_SESSION['user_url'];
-
+			
 			$query = "select * from users where url_address = :user_url limit 1";
 			$data = $db->read($query,$list);
 			if(is_array($data))
