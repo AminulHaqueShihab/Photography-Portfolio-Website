@@ -1,15 +1,16 @@
 <?php
 
 class UserTest extends \PHPUnit\Framework\TestCase {
+
+    protected $Users;
+
     public function test_get_username()
     {
-        include "../Photography-Portfolio-Website/app/models/". 'user' .".php";
-        include "../Photography-Portfolio-Website/app/core/". 'database' .".php";
-        $user = new User();
-        // $user = $this->loadModel("user");
-        // $user = new  ....\app\models\User;
-        $result = $user->get_username(19);
-        $this->assertEquals('Md Aminul Haque',$result);
-    }
 
+        $Users = new \App\Users;
+        $Users->setProfileInfo("Md Aminul Haque",19,"https://www.facebook.com/aminul.haque.5","aminul@gmail.com", "123456");
+        
+        $result = $Users->getUsername(19);
+        $this->assertEquals("Md Aminul Haque",$result);
+    }
 }
