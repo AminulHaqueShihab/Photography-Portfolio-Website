@@ -42,13 +42,14 @@
               <p class="nav-text"></p>
               <ul class="right chevron">
                 <li><a href="<?=ROOT?>home">Home</a></li>
-                <li><a href="<?=ROOT?>profile">Profile</a></li>             
+                            
                 <li><a href="<?=ROOT?>contact">Contact</a></li>
                 
                 <?php if(!isset($_SESSION['user_name'])): ?>
                   <li><a href="<?=ROOT?>login">Login</a></li>
                   <li><a href="<?=ROOT?>signup">Signup</a></li>
                 <?php else: ?>
+                  <li><a href="<?=ROOT?>profile">Profile</a></li> 
                   <li><a href="<?=ROOT?>logout">Logout</a></li>  
                   <li><a href="<?=ROOT?>upload"><img src="<?=ASSETS?>minima/img/upload30x30.png" alt="Upload"></a></li>
                   <!-- <li><a href="<?=ROOT?>upload">Upload</a></li> -->

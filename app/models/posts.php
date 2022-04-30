@@ -12,7 +12,7 @@ Class Posts
 		$limit = 10;
 		$offset = ($page_number - 1) * $limit;
 
-		$query = "select * from images order by view_count desc limit $limit offset $offset";
+		$query = "select * from images order by date desc limit $limit offset $offset";
 
 		$DB = new Database();
 		$data = $DB->read($query);

@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Warning":6,"UserTest::test_get_username":4},"times":{"Warning":0.01,"UserTest::test_get_username":0.071}}
+{"version":1,"defects":{"Warning":6,"UserTest::test_get_username":3},"times":{"Warning":0.01,"UserTest::test_get_username":0.005}}
