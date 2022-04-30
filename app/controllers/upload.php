@@ -13,7 +13,7 @@ Class Upload extends Controller
 	{
 		
 		$user = $this->loadModel("user");
-		
+		$id = $user->get_user_id();
 		if(!$result = $user->verify_login())
 		{
 			header("Location:". ROOT . "login");
@@ -23,7 +23,7 @@ Class Upload extends Controller
 		if(isset($_POST['title']) && isset($_FILES['file']))
 		{
 			$uploader = $this->loadModel("upload_img");
-			$uploader->upload($_POST,$_FILES);
+			$uploader->upload($_POST,$_FILES,$id);
 		}
 		
 		$data['page_title'] = "Upload";

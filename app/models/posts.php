@@ -94,7 +94,7 @@ Class Posts
 	function get_comments($link)
 	{
 		$arr['link'] = $link;
-		$query = "select * from comments where comment_img_link = :link";
+		$query = "select * from comments where comment_img_link = :link order by comment_date desc";
 		
 
 		$DB = new Database();
@@ -107,4 +107,27 @@ Class Posts
 
 		return false;
 	}
+
+	function get_all_user_image($id)
+	{
+
+		$page_number = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+		$page_number = $page_number < 1 ? 1 : $page_number;
+
+		$limit = 10;
+		$offset = ($page_number - 1) * $limit;
+		$arr['id'] = $id;
+		$query = "select * from images where user_id = :id order by view_count desc limit $limit offset $offset";
+
+		$DB = new Database();
+		$data = $DB->read($query,$arr);
+		if(is_array($data))
+		{
+			// show($data);
+			return $data;
+		}
+
+		return false;
+	}
+
 }

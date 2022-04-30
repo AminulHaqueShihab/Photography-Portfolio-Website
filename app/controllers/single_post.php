@@ -21,10 +21,17 @@ Class Single_post extends Controller
 			$data['comments'] = $user_comments;
 			if(isset($_POST['name']) && isset($_POST['comment']))
 			{
-				
-				$posts->user_comment($_POST, $link);
-				$data['page_title'] = "Single Post";
-				$this->view("pages/single_post",$data);
+				$user = $this->loadModel("user");
+		
+				if(!$result = $user->verify_login())
+				{
+					header("Location:". ROOT . "login");
+					die;
+				}else{
+					$posts->user_comment($_POST, $link);
+					$data['page_title'] = "Single Post";
+					$this->view("pages/single_post",$data);
+				}
 			}
 			// $data['like'] = $posts->like_increment($link);
 

@@ -42,7 +42,7 @@
               <p class="nav-text"></p>
               <ul class="right chevron">
                 <li><a href="<?=ROOT?>home">Home</a></li>
-                <li><a href="<?=ROOT?>about">About Us</a></li>             
+                <li><a href="<?=ROOT?>profile">Profile</a></li>             
                 <li><a href="<?=ROOT?>contact">Contact</a></li>
                 
                 <?php if(!isset($_SESSION['user_name'])): ?>

@@ -48,6 +48,12 @@ Class User
 			$list['username'] = $POST['username'];
 			$list['password'] = $POST['password'];
 			$list['email'] = $POST['email'];
+			$list['name'] = $POST['name'];
+			$list['age'] = $POST['age'];
+			$list['occupation'] = $POST['occupation'];
+			$list['institution'] = $POST['institution'];
+			$list['city'] = $POST['city'];
+			$list['country'] = $POST['country'];
 			$list['url_address'] = get_random_string_max(30);
 			$list['date'] = date("Y-m-d H:i:s");
 
@@ -64,7 +70,7 @@ Class User
 			}
 			else{
 
-				$query = "insert into users (username, password, email, url_address,date) values (:username,:password,:email,:url_address,:date)";
+				$query = "insert into users (username, password, email, name, age, occupation, institution, city, country,url_address,date) values (:username,:password,:email,:name,:age,:occupation,:institution,:city,:country,:url_address,:date)";
 				$info = $db->write($query, $list);
 				if($info)
 				{
@@ -99,6 +105,55 @@ Class User
 				$_SESSION['user_url'] = $data[0]->url_address;
 
 				return true;
+			}
+		}
+
+		return false;
+
+	}
+	function get_user_info()
+	{
+
+		$db = new Database();
+
+		if(isset($_SESSION['user_url']))
+		{
+
+			$list['user_url'] = $_SESSION['user_url'];
+
+			$query = "select * from users where url_address = :user_url limit 1";
+			$data = $db->read($query,$list);
+			if(is_array($data))
+			{
+				//logged in
+				// $_SESSION['name'] = $data[0]->username;
+				// $_SESSION['user_url'] = $data[0]->url_address;
+				return $data;
+			}
+		}
+
+		return false;
+
+	}
+	function get_user_id()
+	{
+
+		$db = new Database();
+
+		if(isset($_SESSION['user_url']))
+		{
+
+			$list['user_url'] = $_SESSION['user_url'];
+
+			$query = "select * from users where url_address = :user_url limit 1";
+			$data = $db->read($query,$list);
+			if(is_array($data))
+			{
+				//logged in
+				$_SESSION['id'] = $data[0]->id;
+				// $_SESSION['user_url'] = $data[0]->url_address;
+				// show($data[0]->id);
+				return $data[0]->id;
 			}
 		}
 

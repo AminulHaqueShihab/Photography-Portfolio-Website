@@ -3,7 +3,7 @@
 Class Upload_img
 {
 
-	function upload($POST,$FILES)
+	function upload($POST,$FILES,$id)
 	{
 		$DB = new Database();
 		$_SESSION['error'] = ""; 
@@ -39,12 +39,12 @@ Class Upload_img
 				$arr['title'] = $POST['title'];
 				$arr['description'] = $POST['description'];
 				$arr['image'] = $destination;
-				
+				$arr['user_id']=$id;
 				$arr['url_address'] = get_random_string_max(20);
 				$arr['date'] = date("Y-m-d H:i:s");
 				$arr['view_count'] = 0;
 
-				$query = "insert into images (title,description,url_address,date,image,view_count) values (:title,:description,:url_address,:date,:image,:view_count)";
+				$query = "insert into images (title,description,url_address,date,image,view_count,user_id) values (:title,:description,:url_address,:date,:image,:view_count, :user_id)";
 				$data = $DB->write($query,$arr);
 				if($data)
 				{

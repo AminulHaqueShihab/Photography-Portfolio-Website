@@ -111,6 +111,12 @@ body {
       <input type="text" name="username" placeholder="name"/>
       <input type="password" name="password" placeholder="password"/>
       <input type="text" name="email" placeholder="email address"/>
+      <input type="text" name="name" placeholder="name" required>
+      <input type="number" name="age" placeholder="age"/>
+      <input type="text" name="occupation" placeholder="occupation"/>
+      <input type="text" name="institution" placeholder="institution"/>
+      <input type="text" name="city" placeholder="city"/>
+      <input type="text" name="country" placeholder="country"/>
       <button>Register</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
