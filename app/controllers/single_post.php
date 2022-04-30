@@ -21,9 +21,9 @@ Class Single_post extends Controller
 			$data['comments'] = $user_comments;
 
 			$user = $this->loadModel("user");
-			$id = $user->get_user_id();
+			$id = $user->get_auth($link);
 			$data['user'] = $user->get_username($id);
-			
+
 			if(isset($_POST['name']) && isset($_POST['comment']))
 			{
 				$user = $this->loadModel("user");

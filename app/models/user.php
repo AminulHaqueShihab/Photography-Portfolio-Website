@@ -181,6 +181,25 @@ Class User
 
 	}
 
+	function get_auth($link)
+	{
+		$arr['link'] = $link;
+		$query = "select * from images where url_address = :link limit 1";
+		
+
+		$DB = new Database();
+		$data = $DB->read($query,$arr);
+		if(is_array($data))
+		{
+
+			return $data[0]->user_id;
+		}
+
+		return false;
+
+	}
+
+
 	function logout()
 	{
 		//logged in
